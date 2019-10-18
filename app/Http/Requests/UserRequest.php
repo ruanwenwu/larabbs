@@ -27,7 +27,8 @@ class UserRequest extends FormRequest
         return [
             'name'  =>  'required|between:3,25|regex:/[a-zA-Z0-9\_\-]/|unique:users,name,'.Auth::id(),
             'email' =>  'required|email|unique:users,email,'.Auth::id(),
-            'introduction'  =>  'max:80'
+            'introduction'  =>  'max:80',
+            'avatar'    =>  'mimes:jpeg,bmp,gif,png|dimensions:min_width=200,min_height=200'
         ];
     }
 
@@ -35,7 +36,8 @@ class UserRequest extends FormRequest
     public function messages(){
         return [
             'name.unique'   =>  '用户名只能唯一',
-            'introduction.max'  =>  '用户介绍不能超过80个字'
+            'introduction.max'  =>  '用户介绍不能超过80个字',
+            'avatar.dimensions'=>'图片最小尺寸为200x200'
         ];
     }
 }

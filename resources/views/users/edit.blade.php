@@ -12,13 +12,21 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                         <input type="hidden" name="_method" value="PUT">
                         {{csrf_field()}}
                         @include('shared._errors')
                         <div class="form-group">
                             <label for="name-field">用户名</label>
                             <input class="form-control" type="text" name="name" id="name-field" value="{{ old('name', $user->name) }}" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">头像</label>
+                            <input type="file" id="avatari-field" class="form-control" name="avatar" enctype="multipart/form-data"/>
+                            @if($user->avatar)
+                                <br>
+                                <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="200" />
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="email-field">邮 箱</label>
