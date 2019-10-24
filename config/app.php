@@ -162,6 +162,8 @@ return [
         Overtrue\LaravelLang\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,  //注册自定义viewserviceProvider
+
 
         /*
          * Package Service Providers...
