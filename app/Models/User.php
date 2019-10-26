@@ -41,7 +41,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     //关联模型
     public function topic(){
-        $this->hasMany(Topic::class);
+        return $this->hasMany(Topic::class);
     }
 
 
