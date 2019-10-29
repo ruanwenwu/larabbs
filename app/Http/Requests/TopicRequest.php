@@ -13,6 +13,7 @@ class TopicRequest extends Request
             {
                 return [
                     // CREATE ROLES
+                    'title' =>  'required|min:2',
                 ];
             }
             // UPDATE
@@ -36,6 +37,7 @@ class TopicRequest extends Request
     {
         return [
             // Validation messages
+            'title.min' =>  '标题太短哦'
         ];
     }
 }

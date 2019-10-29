@@ -12,3 +12,8 @@ function route_class(){
 function activeCategory($categoryid){
     return active_class(if_route('categories.show') && if_route_param('category',$categoryid));
 }
+
+function make_excerpt($value,$length = 200){
+    $excerpt = trim(preg_replace('/\r\n|\r|\n+/','', strip_tags($value)));
+    return Str::limit($excerpt,$length);
+}
