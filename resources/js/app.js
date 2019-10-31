@@ -31,3 +31,6 @@ const app = new Vue({
     el: '#app',
 });
 
+//hight the code
+import hljs from 'highlight.js';
+hljs.initHighlightingOnLoad();

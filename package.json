@@ -25,6 +25,9 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.11.2",
-        "simditor": "^2.3.28"
+        "highlight.js": "^9.15.10",
+        "marked": "^0.7.0",
+        "simditor": "^2.3.28",
+        "turndown": "^5.0.3"
     }
 }
