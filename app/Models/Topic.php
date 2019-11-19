@@ -39,4 +39,12 @@ class Topic extends Model
     {
         return $query->orderBy('updated_at', 'DESC');
     }
+
+    /**
+     * @param array $params
+     * 获取topic详情页url
+     */
+    public function link($params = []){
+        return route('topics.show',array_merge([$this->id,$this->slug],$params));
+    }
 }
