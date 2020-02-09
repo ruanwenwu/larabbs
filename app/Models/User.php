@@ -7,9 +7,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    use HasRoles;
     use Notifiable,MustVerifyEmailTrait;
 
     /**
@@ -47,6 +49,10 @@ class User extends Authenticatable implements MustVerifyEmail
     //是否是作者
     public function isAuthorOf($model){
         return $this->id == $model->user_id;
+    }
+
+    public function replies(){
+        return $this->hasMany(Reply::class);
     }
 
 
